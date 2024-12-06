@@ -1,43 +1,202 @@
-<h2> Conference Presentation: Unveiling the evolution- Aerodynamics' pivotal role in transforming formula 1 cars from the 1800s to now </h2>
-      <script>  
-        var slideImages = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.jpg", "slide5.jpg"];
-        var currentSlide = 0; 
-        function showSlide() {
-          document.getElementById('slide').src = slideImages[currentSlide];
-        }
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slideImages.length; 
-          showSlide();
-        }
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length; 
-          showSlide();
-        }
+<!DOCTYPE html>
+<html>
+  <head>
+    <img src="WebBanner2024.jpeg" alt="Banner" width="1200" height="300">
+    <h1><b>ENG00018 Computer laboratory 2024/25</b></h1>
+    <h2>Student URN: 6869336</h2>
+    <hr>
+    <h2 style="font-family:calibri;"><b>conference paper: Unveiling the evolution- Aerodynamics' pivotal role in transforming formula 1 cars from the 1800s to now</b></h2>
+    <hr>
+    <!-- Styles for tables -->
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
+      }
 
-        function showSlideNumber(slideNumber) {
-          currentSlide = slideNumber - 1;
-          showSlide();
-        }
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
 
-        showSlide(); 
-      </script>
-      <div id="slide-container">
-        <img id="slide" src="slide1.jpg" alt="slide 1" style="width:100%; max-width:800px;>
-          </div>
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+
+    <style>
+      p.ex1 {
+        margin-left: 250px;
+      }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+      .mySlides {
+        display: none;
+      }
+
+      #slide-container {
+        text-align: center;
+        position: relative;
+      }
+
+      .button-container {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px;
+      }
+
+      .slide-number-container {
+        position: fixed;
+        bottom: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      body {
+        background-color: #FFFFFF;
+        margin-left: 50px;
+        margin-bottom: 100px; /* To prevent content from hiding behind the buttons */
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h3 id="Abstract">Abstract</h3>
+    <p class='ex1'> 
+      <pre>
+        This research examines the transformative impact of aerodynamics on a Formula 1 (F1) car development from the late 1800s to the FIA's establishment in 1950. 
+        It highlights the crucial role of aerodynamics, especially in the chassis and undercarriage streamlining, driving manufacturers to refine designs for superior
+        speed and efficiency. Studying how F1 cars have changed over the years, the research highlights how aerodynamics affect both speed and fuel efficiency, connecting 
+        aerodynamic improvements to racing performance. Incorporating insights from Formula 1 aerodynamicist Adrian Newey, the research underscores the 
+        delicate balance between innovation and safety in aerodynamics, addressing potential risks. Concluding that aerodynamics is a top factor in F1 car competitiveness, 
+        the study anticipates continued evolution. It suggests manufacturers can enhance stability and create faster, streamlined cars by pushing aerodynamic boundaries.
+      </pre>
+    </p> 
+
+    <hr>
+    <h3 id="Introduction">Introduction</h3>
+    <p class='ex1'>
+      <pre>
+        Formula 1 has always stood as a fiercely competitive and exhilarating game, sparking the interest of innumerable people with its flawless layout and the annual
+        improvements made with the aid of manufacturers to revolutionise automobile design. Throughout the span of many years, the shape, chassis, and components of
+        Formula 1 automobiles have undergone steady and repeated transformations, all geared toward accomplishing lighter and quicker overall performance. Among these
+        adjustments, one of the key elements that has substantially contributed to superior efficiency, not just in racing vehicles but additionally in standard vehicles,
+        is the evolution of aerodynamics in motorised cars.
+      </pre>
+    </p> 
+    <hr>
+
+    <img src="formula 1 aerodynamics.png" alt="aerodynamics of formula 1 cars over time" width="1200" height="500"> 
+    <p class='ex1'>
+      <pre>
+        Figure 1: diagram of how the aerodynamics of formula 1 cars changed over time   
+      </pre>
+    </p>       
+
+    <hr>
+    <h3 id="Brief history of motor racing">Brief history of motor racing</h3>
+    <p class='ex1'>
+      <pre>
+        Courting back to the late 1800s in France, motor racing has a very rich history as it has undergone continuous evolution, encompassing both the automobiles and 
+        the race tracks. As the popularity of racing grew, France delivered the first Grand Prix, organised via the Automobile Club of France, which then paved the way 
+        for other countries to host their own races. In the early days, race tracks had been entirely divergent from what we see nowadays, with races taking place on 
+        public, choppy terrain, sooner or later leading to the introduction of the famed Le Mans Grand Prix circuit. Regrettably, this later gained notoriety as one of 
+        the most perilous tracks in records, claiming the lives of many spectators and competitors over time. 
+      </pre>
+    </p>
+
+    <hr>
+    <h3 id="Significance of aerodynamics in cars">Significance of aerodynamics in cars</h3>
+    <p class='ex1'>
+      <pre>
+        Two primary areas of a car wherein streamlining might yield a substantially exceptional effect are the chassis and the car's undercarriage. Since the debut of 
+        the first Formula 1 car within the mid-Nineteen Fifties, vehicle manufacturers have consistently strived to enhance their designs, aiming for extra speed and 
+        performance in each race. This unrelenting pursuit of development has given upward rise to the development of the magnificent Formula 1 vehicles that we now admire. 
+      </pre>
+    </p>
+
+    <hr>
+    <h3 id="Evolution of formula 1 cars">Evolution of formula 1 cars</h3>
+    <p class='ex1'>
+      <pre>
+        From the beginning, Formula 1 vehicles have been built on the idea that they needed to be lightweight with high-revving engines to outpace their competitors . 
+        However, with time, we got here to realise that this wasn't the only factor. While a light-weight automobile with a high-revving engine remains crucial, 
+        streamlining the vehicle's structure emerged as equally sizable in reaching splendid speeds.
+      </pre>
+    </p>
+
+    <hr>
+    <h3 id="References">References</h3>
+    <p class='ex1'>
+      <pre>
+        - Dieter, R. (2022) Thoughts on formula 1’s new era from red bulls racing’s chief technical officer, Adrian Newey
+        Available at: https://issuu.com/chelseamagazines/docs/supplement/s/16254692#:~:text=Newey%3A%20'It's%20a%20classic%20control,the%20more%20downforce%20it%20gives.(accessed on 23rd october 2023)
+      </pre>
+    </p>
+
+    <hr> 
+    <hr> 
+
+    <h2> Conference Presentation: Unveiling the evolution- Aerodynamics' pivotal role in transforming formula 1 cars from the 1800s to now </h2>
+    
+    <script>  
+      var slideImages = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.jpg", "slide5.jpg"];
+      var currentSlide = 0; 
+      function showSlide() {
+        document.getElementById('slide').src = slideImages[currentSlide];
+      }
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideImages.length; 
+        showSlide();
+      }
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length; 
+        showSlide();
+      }
+
+      function showSlideNumber(slideNumber) {
+        currentSlide = slideNumber - 1;
+        showSlide();
+      }
+
+      showSlide(); 
+    </script>
+
+    <div id="slide-container">
+      <img id="slide" src="slide1.jpg" alt="slide 1" style="width:100%; max-width:800px;">
+    </div>
           
-      <div class="button-container">
-        <button class="button" onclick="prevSlide()">Previous</button>
-        <button class="button" onclick="nextSlide()">Next</button>
-      </div>
+    <div class="button-container">
+      <button class="button" onclick="prevSlide()">Previous</button>
+      <button class="button" onclick="nextSlide()">Next</button>
+    </div>
 
-  <div class="slide-number-container">
-        <button class="button" onclick="showSlideNumber(1)">1</button>
-        <button class="button" onclick="showSlideNumber(2)">2</button>
-        <button class="button" onclick="showSlideNumber(3)">3</button>
-        <button class="button" onclick="showSlideNumber(4)">4</button>
-        <button class="button" onclick="showSlideNumber(5)">5</button>
-  </div>
-    </body>
-
-      
+    <div class="slide-number-container">
+      <button class="button" onclick="showSlideNumber(1)">1</button>
+      <button class="button" onclick="showSlideNumber(2)">2</button>
+      <button class="button" onclick="showSlideNumber(3)">3</button>
+      <button class="button" onclick="showSlideNumber(4)">4</button>
+      <button class="button" onclick="showSlideNumber(5)">5</button>
+    </div>
+  </body>
 </html>
