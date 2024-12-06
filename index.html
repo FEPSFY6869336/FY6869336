@@ -157,20 +157,83 @@
     <hr> 
     <hr> 
 
-    <h2> Conference Presentation: Unveiling the evolution- Aerodynamics' pivotal role in transforming formula 1 cars from the 1800s to now </h2>
-    
-    <script>  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Presentation</title>
+    <style>
+      /* Basic styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #FFFFFF;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 100px; /* Space for the buttons */
+      }
+
+      #slide-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .button-container,
+      .slide-number-container {
+        text-align: center;
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom of the page */
+        width: 100%;
+        left: 0;
+        z-index: 10;
+      }
+
+      .button-container {
+        margin-bottom: 60px; /* Space between the "Previous" and "Next" buttons and the slide number buttons */
+      }
+
+      .button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+
+      .button-container button:hover,
+      .slide-number-container button:hover {
+        background-color: #45a049;
+      }
+
+      #slide {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Conference Presentation: Unveiling the evolution- Aerodynamics' pivotal role in transforming Formula 1 cars from the 1800s to now</h2>
+
+    <script>
       var slideImages = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.jpg", "slide5.jpg"];
-      var currentSlide = 0; 
+      var currentSlide = 0;
+
       function showSlide() {
         document.getElementById('slide').src = slideImages[currentSlide];
       }
+
       function nextSlide() {
-        currentSlide = (currentSlide + 1) % slideImages.length; 
+        currentSlide = (currentSlide + 1) % slideImages.length;
         showSlide();
       }
+
       function prevSlide() {
-        currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length; 
+        currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length;
         showSlide();
       }
 
@@ -179,18 +242,20 @@
         showSlide();
       }
 
-      showSlide(); 
+      showSlide(); // Initial slide
     </script>
 
     <div id="slide-container">
-      <img id="slide" src="slide1.jpg" alt="slide 1" style="width:100%; max-width:800px;">
+      <img id="slide" src="slide1.jpg" alt="slide 1">
     </div>
-          
+
+    <!-- Buttons for previous and next slide -->
     <div class="button-container">
       <button class="button" onclick="prevSlide()">Previous</button>
       <button class="button" onclick="nextSlide()">Next</button>
     </div>
 
+    <!-- Buttons for selecting slide number -->
     <div class="slide-number-container">
       <button class="button" onclick="showSlideNumber(1)">1</button>
       <button class="button" onclick="showSlideNumber(2)">2</button>
