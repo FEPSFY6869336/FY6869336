@@ -7,8 +7,8 @@
 <video width="640" height="360" controls>
   <source src="2024-12-07 15-17-34.mp4" type="video/mp4">
 </video>
-    
-    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
     <!-- Last commit time display -->
@@ -19,10 +19,10 @@
 </button>
 <script>
     async function getLastUpdatedTime() {
-        const username = 'FEPSFY6869336';
-        const repo = 'FY6869336';
+        const username = 'FY6869336';
+        const repo = 'FEPSFY6869336';
        
-        const url = https://api.github.com/repos/${username}/${repo}/commits;
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
         try {
             const response = await fetch(url, {
                 method: 'GET',
@@ -31,14 +31,14 @@
                 }
             });
             if (!response.ok) {
-                throw new Error(Error fetching data: ${response.status} - ${response.statusText});
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
             }
             const commits = await response.json();
             if (commits && commits.length > 0) {
                 const lastCommitDate = new Date(commits[0].commit.committer.date);
                
                 // Displaying the time on load
-                document.getElementById('last-updated').innerText = Last Modified Time: ${lastCommitDate.toLocaleString()};
+                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
             } else {
                 document.getElementById('last-updated').innerText = 'No commits found in the repository.';
             }
@@ -79,16 +79,16 @@
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const Abstract = displayWordCount("Abstract");
-    const Introduction = displayWordCount("Introduction");
-    const History = displayWordCount("History of automotive competitions");
-    const Importance = displayWordCount("Importance of aerodynamics in cars");
-    const Innovation = displayWordCount("Innovation of formula 1 cars");
-    const References = displayWordCount("References");
+    const Abstract = displayWordCount("#Abstract");
+    const Introduction = displayWordCount("#Introduction");
+    const History = displayWordCount("#History of automotive competitions");
+    const Importance = displayWordCount("#Importance of aerodynamics in cars");
+    const Innovation = displayWordCount("#Innovation of formula 1 cars");
+    const References = displayWordCount("#References");
     // Calculate the sum of all selected sections
-    const totalWordCount = Abstract + Introduction + History + Importance + Innovation + References ;
+    const totalWordCount = Abstract + Introduction + History + Importance + Innovation + References;
     // Display the total word count
-    document.getElementById("totalWordCount").innerText = Total word count: ${totalWordCount};
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
   // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
