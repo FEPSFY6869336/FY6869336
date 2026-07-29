@@ -59,7 +59,12 @@
   <h3 id="Abstract">Abstract</h3>
   <p class="ex1">
   <pre>
-The 0-1 Knapsack Problem is a classic optimisation problem in which a subset of items must be selected to maximise total value without exceeding a fixed weight limit, with each item either included in full or excluded entirely. As the number of items increases, the number of possible combinations grows exponentially, making it impractical to check every option for large datasets. Dynamic programming addresses this by breaking the problem into smaller, overlapping subproblems, storing the best solution for each weight and item combination so that previously calculated results can be reused rather than recalculated. This approach significantly reduces computation time while still guaranteeing an optimal solution. The problem has numerous real-world applications, including resource allocation, cargo loading, budgeting, investment selection, and computer memory management. This article explains the problem, outlines how the dynamic programming algorithm works, and illustrates the computational advantage of dynamic programming through a comparison of algorithmic growth rates.
+The 0-1 Knapsack Problem is a classic optimisation problem in which a subset of items must be selected to maximise total value without exceeding a fixed weight limit, with each item either included in full 
+    or excluded entirely. As the number of items increases, the number of possible combinations grows exponentially, making it impractical to check every option for large datasets. Dynamic programming addresses
+    this by breaking the problem into smaller, overlapping subproblems, storing the best solution for each weight and item combination so that previously calculated results can be reused rather than recalculated. 
+    This approach significantly reduces computation time while still guaranteeing an optimal solution. The problem has numerous real-world applications, including resource allocation, cargo loading, budgeting, 
+    investment selection, and computer memory management. This article explains the problem, outlines how the dynamic programming algorithm works, and illustrates the computational advantage of dynamic programming 
+    through a comparison of algorithmic growth rates.
   </pre>
   </p>
 
@@ -67,7 +72,13 @@ The 0-1 Knapsack Problem is a classic optimisation problem in which a subset of 
   <h3 id="Introduction">Introduction</h3>
   <p class="ex1">
   <pre>
-The 0-1 Knapsack Problem is one of the most widely studied problems in combinatorial optimisation, a branch of computer science and mathematics concerned with finding the best solution from a finite set of possible choices. It can be understood through the analogy of a thief carrying a knapsack with a fixed weight limit, who must decide which items to steal in order to maximise total value without exceeding the bag's capacity. Formally, each item is assigned a weight and a value, and the objective is to select the subset of items that produces the highest possible total value while remaining within the knapsack's capacity, with each item either included in full or excluded entirely. This binary decision makes the problem significantly more challenging as the number of items increases, since the number of possible combinations grows exponentially. As a result, the 0-1 Knapsack Problem is classified as NP-hard, meaning no known algorithm can guarantee an efficient solution for all cases as the problem size grows — yet it remains highly relevant, with applications in resource allocation, logistics, budgeting, and computer systems (<a href="#ref-cacchiani">Cacchiani et al., 2022</a>). This article explains how dynamic programming provides an efficient method for solving the problem and compares its performance with the exponential growth of a brute-force approach.
+The 0-1 Knapsack Problem is one of the most widely studied problems in combinatorial optimisation, a branch of computer science and mathematics concerned with finding the best solution from a finite set of 
+    possible choices. It can be understood through the analogy of a thief carrying a knapsack with a fixed weight limit, who must decide which items to steal in order to maximise total value without exceeding the 
+    bag's capacity. Formally, each item is assigned a weight and a value, and the objective is to select the subset of items that produces the highest possible total value while remaining within the knapsack's 
+    capacity, with each item either included in full or excluded entirely. This binary decision makes the problem significantly more challenging as the number of items increases, since the number of possible 
+    combinations grows exponentially. As a result, the 0-1 Knapsack Problem is classified as NP-hard, meaning no known algorithm can guarantee an efficient solution for all cases as the problem size grows — 
+    yet it remains highly relevant, with applications in resource allocation, logistics, budgeting, and computer systems (<a href="#ref-cacchiani">Cacchiani et al., 2022</a>). This article explains how dynamic 
+    programming provides an efficient method for solving the problem and compares its performance with the exponential growth of a brute-force approach.
   </pre>
   </p>
 
@@ -76,23 +87,43 @@ The 0-1 Knapsack Problem is one of the most widely studied problems in combinato
 
   <h4>Why the Problem is Hard</h4>
   <p>
-  The main difficulty of the 0-1 Knapsack Problem lies in the rapidly increasing number of possible item combinations as the number of available items grows. Since each item can either be included or excluded, there are 2<sup>n</sup> possible subsets for <i>n</i> items. For a small number of items, it is feasible to evaluate every combination using a brute-force approach. However, as the number of items increases, the search space grows exponentially, making exhaustive search computationally impractical (<a href="#ref-feng">Feng et al., 2025</a>). For example, while 10 items produce only 1,024 possible combinations, 30 items result in over one billion possibilities, causing execution time to increase dramatically for real-world optimisation problems involving hundreds or thousands of items. As a result, brute-force algorithms become inefficient because they repeatedly evaluate combinations that provide no useful information. This computational challenge motivates the use of more efficient techniques, such as dynamic programming, which avoids redundant calculations by solving and storing smaller subproblems instead of exploring every possible solution.
+  The main difficulty of the 0-1 Knapsack Problem lies in the rapidly increasing number of possible item combinations as the number of available items grows. Since each item can either be included or excluded, 
+    there are 2<sup>n</sup> possible subsets for <i>n</i> items. For a small number of items, it is feasible to evaluate every combination using a brute-force approach. However, as the number of items increases, 
+    the search space grows exponentially, making exhaustive search computationally impractical (<a href="#ref-feng">Feng et al., 2025</a>). For example, while 10 items produce only 1,024 possible combinations, 
+    30 items result in over one billion possibilities, causing execution time to increase dramatically for real-world optimisation problems involving hundreds or thousands of items. As a result, brute-force 
+    algorithms become inefficient because they repeatedly evaluate combinations that provide no useful information. This computational challenge motivates the use of more efficient techniques, such as dynamic 
+    programming, which avoids redundant calculations by solving and storing smaller subproblems instead of exploring every possible solution.
   </p>
 
   <h4>How Dynamic Programming Solves the Problem</h4>
   <p>
-  Dynamic programming provides an efficient solution to the 0-1 Knapsack Problem by avoiding the repeated calculations that make brute-force methods so inefficient. Rather than evaluating every possible combination of items, the algorithm breaks the problem into a series of smaller, overlapping subproblems. It then determines the best possible value that can be achieved for every weight limit while considering the available items one at a time. Each result is stored in a table, allowing previously calculated solutions to be reused whenever the same subproblem is encountered again. This eliminates unnecessary repetition and significantly reduces the amount of computation required.
+  Dynamic programming provides an efficient solution to the 0-1 Knapsack Problem by avoiding the repeated calculations that make brute-force methods so inefficient. Rather than evaluating every possible 
+    combination of items, the algorithm breaks the problem into a series of smaller, overlapping subproblems. It then determines the best possible value that can be achieved for every weight limit while 
+    considering the available items one at a time. Each result is stored in a table, allowing previously calculated solutions to be reused whenever the same subproblem is encountered again. This eliminates 
+    unnecessary repetition and significantly reduces the amount of computation required.
   </p>
   <p>
-  The algorithm works by comparing two possibilities for each item: excluding it from the knapsack or including it if the remaining capacity allows. The option that produces the greater total value is recorded in the table as the optimal solution for that particular combination of items and weight capacity. By building this table incrementally from the smallest subproblems to the complete problem, dynamic programming guarantees that the final result is the optimal solution without having to explore every possible subset of items. This approach exploits the principles of optimal substructure, where the optimal solution is composed of optimal solutions to smaller subproblems, and overlapping subproblems, where many intermediate calculations would otherwise be repeated. Consequently, dynamic programming transforms the problem from one requiring exponential search into one solvable in pseudo-polynomial time — efficient in practice, though technically still reliant on the numeric size of the weight capacity rather than the number of items alone — making it suitable for many practical optimisation tasks (<a href="#ref-kellerer">Kellerer et al., 2004</a>; <a href="#ref-szkaliczki">Szkaliczki, 2025</a>).
+  The algorithm works by comparing two possibilities for each item: excluding it from the knapsack or including it if the remaining capacity allows. The option that produces the greater total value is recorded in 
+    the table as the optimal solution for that particular combination of items and weight capacity. By building this table incrementally from the smallest subproblems to the complete problem, dynamic programming 
+    guarantees that the final result is the optimal solution without having to explore every possible subset of items. This approach exploits the principles of optimal substructure, where the optimal solution is 
+    composed of optimal solutions to smaller subproblems, and overlapping subproblems, where many intermediate calculations would otherwise be repeated. Consequently, dynamic programming transforms the problem from 
+    one requiring exponential search into one solvable in pseudo-polynomial time — efficient in practice, though technically still reliant on the numeric size of the weight capacity rather than the number of items 
+    alone — making it suitable for many practical optimisation tasks (<a href="#ref-kellerer">Kellerer et al., 2004</a>; <a href="#ref-szkaliczki">Szkaliczki, 2025</a>).
   </p>
 
   <h4>Growth-Rate Comparison</h4>
   <p>
-  The difference in efficiency between brute-force search and dynamic programming becomes much clearer when their computational growth rates are compared. As shown in Figure 1, the number of operations required by the brute-force approach increases exponentially with the number of items, following approximately 2<sup>n</sup>. In contrast, the dynamic programming algorithm grows much more gradually, with its complexity proportional to the product of the number of items and the knapsack capacity (n × W). Although dynamic programming still requires additional computation as the problem size increases, its rate of growth is significantly lower than that of brute-force search.
+  The difference in efficiency between brute-force search and dynamic programming becomes much clearer when their computational growth rates are compared. As shown in Figure 1, the number of operations required 
+    by the brute-force approach increases exponentially with the number of items, following approximately 2<sup>n</sup>. In contrast, the dynamic programming algorithm grows much more gradually, with its complexity
+    proportional to the product of the number of items and the knapsack capacity (n × W). Although dynamic programming still requires additional computation as the problem size increases, its rate of growth is 
+    significantly lower than that of brute-force search.
   </p>
   <p>
-  The logarithmic scale used in Figure 1 highlights the widening gap between the two approaches. For example, increasing the number of items from 20 to 25 causes the estimated brute-force search space to rise from just over one million to more than 33 million possible combinations, whereas the dynamic programming approach increases only from 1,000 to 1,250 computational units when the knapsack capacity is fixed at W = 50. This demonstrates why brute-force algorithms quickly become impractical for larger optimisation problems, while dynamic programming remains computationally feasible. The improved scalability of dynamic programming has made it one of the most widely used techniques for solving knapsack problems in practical applications such as logistics, resource allocation, and scheduling, where large problem instances are common (<a href="#ref-cacchiani">Cacchiani et al., 2022</a>; <a href="#ref-feng">Feng et al., 2025</a>).
+  The logarithmic scale used in Figure 1 highlights the widening gap between the two approaches. For example, increasing the number of items from 20 to 25 causes the estimated brute-force search space to rise 
+    from just over one million to more than 33 million possible combinations, whereas the dynamic programming approach increases only from 1,000 to 1,250 computational units when the knapsack capacity is fixed 
+    at W = 50. This demonstrates why brute-force algorithms quickly become impractical for larger optimisation problems, while dynamic programming remains computationally feasible. The improved scalability of 
+    dynamic programming has made it one of the most widely used techniques for solving knapsack problems in practical applications such as logistics, resource allocation, and scheduling, where large problem 
+    instances are common (<a href="#ref-cacchiani">Cacchiani et al., 2022</a>; <a href="#ref-feng">Feng et al., 2025</a>).
   </p>
 
   <div id="chart_div" style="width: 700px; height: 400px;"></div>
