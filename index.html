@@ -6,6 +6,13 @@
   <h1><b>ENG0018 Computer Laboratory 2023/24</b></h1>
   <h2>Student URN: 6869336</h2>
 
+  <p><i>Page last viewed: <span id="date&time"></span></i></p>
+  <script>
+    //Javascript to display the date and time on my webpage
+    const d = new Date();
+    document.getElementById("date&time").innerHTML = d;
+  </script>
+
   <hr>
   <h2 style="font-family:calibri;"><b>Conference paper: [Your article title here]</b></h2>
   <hr>
@@ -32,6 +39,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body style="background-color:#FFFFFF;margin-left:50px;">
@@ -77,25 +85,7 @@
     </tr>
   </table>
 
-  <hr>
-  <h3 id="References">References</h3>
-  <p>
-  <pre>
-  [Your reference list here]
-  </pre>
-  </p>
-
-  <!-- Date and time -->
-  <p id="date&time"></p>
-  <script>
-    //Javascript to display the date and time on my webpage
-    const d = new Date();
-    document.getElementById("date&time").innerHTML = d;
-  </script>
-
-  <!-- Chart -->
   <div id="chart_div"></div>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -113,5 +103,14 @@
       chart.draw(data, options);
     }
   </script>
+
+  <hr>
+  <h3 id="References">References</h3>
+  <p>
+  <pre>
+  [Your reference list here]
+  </pre>
+  </p>
+
 </body>
 </html>
