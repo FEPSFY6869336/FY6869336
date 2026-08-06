@@ -56,20 +56,20 @@
   <hr>
   <h3 id="Abstract">Abstract</h3>
   <p class="ex1">
-  <pre>
+  <p>
 The 0-1 Knapsack Problem is a classic optimisation problem in which a subset of items must be selected to maximise total value without exceeding a fixed weight limit, with each item either included 
     in full or excluded entirely. As the number of items increases, the number of possible combinations grows exponentially, making it impractical to check every option for large datasets. 
     Dynamic programming addresses this by breaking the problem into smaller, overlapping subproblems, storing the best solution for each weight and item combination so that previously calculated results 
     can be reused rather than recalculated. This approach significantly reduces computation time while still guaranteeing an optimal solution. The problem has numerous real-world applications, 
     including resource allocation, cargo loading, budgeting, investment selection, and computer memory management. This article explains the problem, outlines how the dynamic programming algorithm works, 
     and illustrates the computational advantage of dynamic programming through a comparison of algorithmic growth rates.
-  </pre>
+  </p>
   </p>
 
   <hr>
   <h3 id="Introduction">Introduction</h3>
   <p class="ex1">
-  <pre id="Introduction_InText">
+  <p id="Introduction_InText">
 The 0-1 Knapsack Problem is one of the most widely studied problems in combinatorial optimisation, a branch of computer science and mathematics concerned with finding the best solution from a finite set of 
     possible choices. It can be understood through the analogy of a thief carrying a knapsack with a fixed weight limit, who must decide which items to steal in order to maximise total value without exceeding 
     the bag's capacity. Formally, each item is assigned a weight and a value, and the objective is to select the subset of items that produces the highest possible total value while remaining within the knapsack's 
@@ -77,7 +77,7 @@ The 0-1 Knapsack Problem is one of the most widely studied problems in combinato
     combinations grows exponentially. As a result, the 0-1 Knapsack Problem is classified as NP-hard, meaning no known algorithm can guarantee an efficient solution for all cases as the problem size grows — yet 
     it remains highly relevant, with applications in resource allocation, logistics, budgeting, and computer systems (<a href="#ref-cacchiani">Cacchiani et al., 2022</a>). This article explains how dynamic 
     programming provides an efficient method for solving the problem and compares its performance with the exponential growth of a brute-force approach.
-  </pre>
+  </p>
   </p>
 
   <hr>
